@@ -3,7 +3,7 @@
     .container
       %a.brand{:href => root_path} CF Storm
       %ul.nav
-        %li.dropdown
+        %li.active.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             #current-space
               = space_human_name(@space)
@@ -15,10 +15,17 @@
                 %a{:href => space_path(space), :id => "space-#{space.guid}"}= space_human_name(space)
             %li.divider
             %li
-              %a{:tabindex => "-1", :href => new_path(:spaces) } Create Space  
+              %a{:tabindex => "-1", :href => new_path(:spaces) } Create Space
+      %ul.nav.pull-right
         %li
-          %a.avatar-button{:href => '#'}
-            %img#user-avatar{:src => user_avatar_path(current_user),
-              :title => "You are logged in as #{current_user.email}"}
-        %li
-          %a{:href => '/sessions/delete'} Logout
+          %img#user-avatar{:src => user_avatar_path(current_user)}
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            #{current_user.email}
+            %strong.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Profile
+            %li.divider
+            %li
+              %a{:href => '/sessions/delete'} Logout
