@@ -21,7 +21,7 @@ module AppHelpers
   end
 
   def cpu_usage number
-    "%.2f%" % number
+    "%.2f %" % (number.to_f * 100)
   end
 
   def to_megabytes bytes
