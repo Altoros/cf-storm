@@ -1,0 +1,12 @@
+---
+cfstorm:
+  image: cacciald/cf-storm
+  command: rackup -p 9393
+  ports: 
+    - "9393:9393"
+  environment:
+    REDIS_URL: redis://172.17.42.1:6379
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
