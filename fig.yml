@@ -1,6 +1,6 @@
 ---
 cfstorm:
-  image: cacciald/cf-storm
+  build: .
   command: rackup -p 9393
   ports: 
     - "9393:9393"
